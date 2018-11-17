@@ -1,4 +1,4 @@
-# Django-AdminCommand 
+# Django-AdminCommand
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 
@@ -28,9 +28,15 @@ Starting from the fork, changes were made in the following area:
 
 ## Installation
 
-For now you can only clone this repo and run `python setup.py develop` (sudo if needed) to setup Django AdminCommand.
+From Pypi
 
-(Soon on PyPi)
+```shell
+pip install django-admincommand
+```
+
+From sources
+
+You can clone this repo and run `python setup.py develop` (sudo if needed) to setup Django AdminCommand.
 
 ## Settings
 
@@ -49,7 +55,7 @@ all the management commands that must be admin commands.
 ## Make magic happens
 
 
-Create a Django Management Command::
+Create a Django Management Command
 
 ```py
 # ./music/management/commands/lyrics.py
@@ -62,7 +68,7 @@ class Command(BaseCommand):
         # algorithm that generated lyrics based on a title and a dictionary
 ```
 
-Then you will have to create a configuration class for the command::
+Then you will have to create a configuration class for the command
 
 ```py
 # ./music/admincommands.py
@@ -114,7 +120,7 @@ only see and be able to execute admin commands for which they have the permissio
 
 If you want to execute commands asynchronously you have to
 specify it in the AdminCommand configuration class with the
-``asynchronous`` property set to ``True``::
+``asynchronous`` property set to ``True``
 
 ```py
 # ./music/admincommands.py
@@ -135,4 +141,3 @@ class Fugue(AdminCommand):
 
 
 You also need to run periodically ``flush_queue`` from ``django-async`` application for that matter don't forget to install the application.
-
